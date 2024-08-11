@@ -248,44 +248,71 @@ const RegisterForm = ({ user }: { user: User }) => {
           />
         </div>
 
-        <div className="space-y-6">
+        <section className="space-y-6">
           <div className="mb-9 space-y-1">
             <h2 className="sub-header">Identicfication and Verification</h2>
           </div>
+        </section>
 
-          <CustomFormField
-            fieldType={FormFieldType.SELECT}
-            control={form.control}
-            name="identificationType"
-            label="Identification type"
-            placeholder="Select an identification type"
-          >
-            {IdentificationTypes.map((type) => (
-              <SelectItem key={type} value={type}>
-                {type}
-              </SelectItem>
-            ))}
-          </CustomFormField>
-          <CustomFormField
-            fieldType={FormFieldType.INPUT}
-            control={form.control}
-            name="identificationNumber"
-            label="Identification number"
-            placeholder="12345"
-          />
+        <CustomFormField
+          fieldType={FormFieldType.SELECT}
+          control={form.control}
+          name="identificationType"
+          label="Identification type"
+          placeholder="Select an identification type"
+        >
+          {IdentificationTypes.map((type) => (
+            <SelectItem key={type} value={type}>
+              {type}
+            </SelectItem>
+          ))}
+        </CustomFormField>
+        <CustomFormField
+          fieldType={FormFieldType.INPUT}
+          control={form.control}
+          name="identificationNumber"
+          label="Identification number"
+          placeholder="12345"
+        />
 
-          <CustomFormField
-            fieldType={FormFieldType.SKELETON}
-            control={form.control}
-            name="identificationDocument"
-            label="Scanned copy of identification document"
-            renderSkeleton={(field) => (
-              <FormControl>
-                <FileUploader files={field.value} onChange={field.onChange} />
-              </FormControl>
-            )}
-          />
-        </div>
+        <CustomFormField
+          fieldType={FormFieldType.SKELETON}
+          control={form.control}
+          name="identificationDocument"
+          label="Scanned copy of identification document"
+          renderSkeleton={(field) => (
+            <FormControl>
+              <FileUploader files={field.value} onChange={field.onChange} />
+            </FormControl>
+          )}
+        />
+
+        <section className="space-y-6">
+          <div className="mb-9 space-y-1">
+            <h2 className="sub-header">Consent and Privacy</h2>
+          </div>
+        </section>
+
+        <CustomFormField
+          fieldType={FormFieldType.CHECKBOX}
+          control={form.control}
+          name="treatmentConsent"
+          label="I consent to treatment"
+        />
+        <CustomFormField
+          fieldType={FormFieldType.CHECKBOX}
+          control={form.control}
+          name="disclosureConsent"
+          label="I consent to disclosure of information"
+        />
+
+        <CustomFormField
+          fieldType={FormFieldType.CHECKBOX}
+          control={form.control}
+          name="privacyConsent"
+          label="I consent to privacy policy "
+        />
+
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
     </Form>

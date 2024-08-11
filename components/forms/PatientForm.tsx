@@ -53,6 +53,7 @@ const PatientForm = () => {
     } catch (error) {
       console.log(error);
     }
+    setIsLoading(false);
   }
   return (
     <Form {...form}>
@@ -87,7 +88,7 @@ const PatientForm = () => {
           control={form.control}
           name="phone"
           label="Phone number"
-          placeholder="(555) 123-4567"
+          placeholder="12345"
         />
 
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>

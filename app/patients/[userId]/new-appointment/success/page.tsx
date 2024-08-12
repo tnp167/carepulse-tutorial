@@ -10,7 +10,7 @@ const Success = async ({
   params: { userId },
   searchParams,
 }: SearchParamProps) => {
-  const appointmentId = (searchParams?.appointmenId as string) || "";
+  const appointmentId = (searchParams?.appointmentId as string) || "";
   const appointment = await getAppointment(appointmentId);
   const doctor = Doctors.find(
     (doc) => doc.name === appointment.primaryPhysician
@@ -39,7 +39,7 @@ const Success = async ({
             Your <span className="text-green-500">appointment request</span> has
             been successfully submitted!
           </h2>
-          <p>We'll be in touch shortly to confirm</p>
+          <p>We will be in touch shortly to confirm</p>
         </section>
 
         <section className="request-details">
